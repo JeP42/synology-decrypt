@@ -23,6 +23,7 @@ import os
 import logging
 
 import syndecrypt.files as files
+import syndecrypt.directory as directory
 import syndecrypt.util as util
 
 arguments = docopt.docopt(__doc__)
@@ -43,4 +44,7 @@ logging.getLogger().setLevel(logging.INFO)
 logging.basicConfig(format='%(levelname)s: %(message)s')
 
 for f in arguments['<encrypted-file>']:
-        files.decrypt_file(f, os.path.join(output_dir, f), password=password, private_key=private_key)
+        outputFile = os.path.join(output_dir, f)
+        if os.path.isdir: directory.decrypt_directory(f, output_dir, password=password, private_key=private_key)
+        else: files.decrypt_file(f, outputFile, password=password, private_key=private_key)
+        
