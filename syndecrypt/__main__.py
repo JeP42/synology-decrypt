@@ -45,6 +45,6 @@ logging.basicConfig(format='%(levelname)s: %(message)s')
 
 for f in arguments['<encrypted-file>']:
         outputFile = os.path.join(output_dir, f)
-        if os.path.isdir: directory.decrypt_directory(f, output_dir, password=password, private_key=private_key)
+        if os.path.isdir(f): directory.decrypt_directory(f, output_dir, password=password, private_key=private_key)
         else: files.decrypt_file(f, outputFile, password=password, private_key=private_key)
         
